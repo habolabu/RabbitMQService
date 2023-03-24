@@ -11,11 +11,8 @@ services:
     image: rabbitmq:3.11.11
     container_name: 'rabbitmq'
     ports:
-      - 5672:5672
-      - 15673:15672
+      - ${RABBITMQ_SERVER_HOST_PORT}:${RABBITMQ_SERVER_CONTAINER_PORT}
+      - ${RABBITMQ_UI_HOST_PORT}:${RABBITMQ_UI_CONTAINER_PORT}
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq/
-      - rabbitmq_log_data:/var/log/rabbitmq
-    environment:
-      - RABBITMQ_DEFAULT_USER:admin
-      - RABBITMQ_DEFAULT_PASS:12345678
+      - rabbitmq_data:${RABBITMQ_DATA}
+      - rabbitmq_log_data:${RABBITMQ_LOG_DATA}
