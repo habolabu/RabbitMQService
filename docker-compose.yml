@@ -8,7 +8,7 @@ volumes:
 
 services:
   rabbitmq:
-    image: 3-management-alpine
+    image: rabbitmq:3.11.11
     container_name: 'rabbitmq'
     ports:
       - ${RABBITMQ_SERVER_HOST_PORT}:${RABBITMQ_SERVER_CONTAINER_PORT}
