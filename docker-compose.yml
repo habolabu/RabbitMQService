@@ -6,9 +6,13 @@ volumes:
   rabbitmq_log_data:
     driver: local
 
+networks:
+  rabbitmq_net:
+    driver: bridge
+
 services:
   rabbitmq:
-    image: rabbitmq:3.11.11
+    image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
     ports:
       - ${RABBITMQ_SERVER_HOST_PORT}:${RABBITMQ_SERVER_CONTAINER_PORT}
@@ -16,3 +20,5 @@ services:
     volumes:
       - rabbitmq_data:${RABBITMQ_DATA}
       - rabbitmq_log_data:${RABBITMQ_LOG_DATA}
+    networks:
+      - ${RABBITMQ_NETWORK}
