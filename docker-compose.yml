@@ -12,7 +12,7 @@ networks:
 
 services:
   rabbitmq:
-    image: rabbitmq:3.11.11
+    image: rabbitmq:3-management-alpine
     ports:
       - ${RABBITMQ_SERVER_HOST_PORT}:${RABBITMQ_SERVER_CONTAINER_PORT}
       - ${RABBITMQ_UI_HOST_PORT}:${RABBITMQ_UI_CONTAINER_PORT}
